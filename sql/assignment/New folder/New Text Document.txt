@@ -1,0 +1,136 @@
+Mã: SQL01
+Tổng số câu hỏi: 25
+Thời gian: 45’
+1. Thực hiện trên table A, câu SQL nào sẽ thu được table B?
+ĐÁP ÁN :
+ A. SELECT department_code, employee_ID, name
+FROM A
+GROUP BY employee_ID
+
+2. Từ khóa "LIKE" trong SQL thường được sử dụng với lệnh?
+
+A. WHERE 
+
+3. Toán tử nào để lấy ra các cột đặc biệt từ table trong 1 cơ sở dữ liệu quan hệ?
+A. Join
+
+
+4. Câu lệnh SQL nào có thể insert 1 hàng mới vào "Student" table?
+
+A. INSERT INTO student (stud_id, address, graduation)
+VALUES (101, ‘Dave’, ‘100 Happy Lane’, ‘2001-06-14’);
+
+5. Khi thực thi câu lệnh bên dưới, ta thu được bao nhiêu hàng?
+SELECT DISTINCT customer_name, merchandise_name, unit_price
+FROM order_table, merchandise_table
+WHERE order_table.merchandise_number = merchandise_table.mnrchandise_number
+
+B. 3
+
+
+6. Câu lệnh nào có thể insert bản ghi mới vào table "Persons"?
+
+C. INSERT INTO Persons VALUES ('Jimmy', 'Jackson')
+
+7. Câu lệnh SQL sau đây là kiểu JOIN nào?
+A. Inner join
+
+8. Những phép toán đại số quan hệ nào sau đây không yêu cầu các table tham gia phải tương thích
+với nhau về số column và datatype của mỗi column?
+B. Intersection
+
+9. Bạn có 1 database có chứa các table Customers và Orders. 2 table này có liên kết với
+nhau bởi column CustomerID. Bạn cần phải tạo 1 câu query để trả về tên của tất cả các
+khách hàng (có column là CustomerName) và thời gian đặt hàng của mỗi đơn hàng (có
+column là OrderDate).
+Chú ý: Kết quả chỉ bao gồm các customer chưa đặt bất kỳ 1 đơn hàng nào.
+Câu lệnh nào nên dùng?
+A. SELECT CustomerName, OrderDate
+FROM Customers
+RIGHT OUTER JOIN Orders
+ON Customers.CustomerID = Orders.CustomerID
+
+10. Câu lệnh nào dùng để thay đổi "Hansen" thành "Nilsen" trong cột "LastName" của
+table Persons
+B. UPDATE Persons SET LastName='Nilsen'
+WHERE LastName='Hansen'
+
+11. Câu lệnh SQL nào có thể lấy ra tất cả các hàng của table Contest với điều kiện cột
+ContestDate có giá trị lớn hơn hoặc bằng ngày 25 tháng 5 năm 2006?
+
+D. SELECT *
+FROM Contest
+WHERE ContestDate >= '05/25/2006'
+
+12. Có bảo nhiều table có thể có trong 1 lần JOIN?
+
+B. 2
+
+13. Subqueries có thể lồng nhau nhiều lần 
+A. TRUE
+
+14. Câu lệnh nào có thể lấy tên của những nhân viên có lương lớn hơn hoặc bằng 10000$ từ
+table “human_resource”?
+B. SELECT employee_name, COUNT(*)
+FROM human_resource
+ WHERE salary>=10000
+GROUP BY employee_name
+
+
+15. Bạn có 1 database có chứa hai table tên là InternalSalesOrder và
+InternationalSalesOrder. Cả hai table đều chứa hơn 100 triệu hàng. Mỗi table có một
+column là primary key có tên SalesOrderId. Dữ liệu trong hai bảng khác biệt với nhau.
+Người dùng doanh nghiệp muốn có một báo cáo bao gồm thông tin tổng hợp về tổng số
+lượng bán hàng toàn cầu và tổng số tiền bán hàng. Bạn cần đảm bảo rằng truy vấn của bạn
+thực thi trong thời gian tối thiểu có thể. Bạn nên sử dụng truy vấn nào?
+
+B. SELECT COUNT(*) AS NumberOfSales, SUM(SalesAmount) AS TotalSalesAmount
+FROM (
+ SELECT SalesOrderId, SalesAmount
+ FROM DomesticSalesOrders
+ UNION
+ SELECT SalesOrderId, SalesAmount
+ FROM InternationalSalesOrders
+ ) AS p;
+
+16. Bạn có 1 table tên là Employees và bạn muốn xác định người giám sát của mỗi nhân
+viên (supervisor). Bạn sẽ sử dụng loại JOIN nào dưới đây. 
+B. INNER JOIN Employees s ON e.EmployeeId = s.EmployeeId;
+
+17. Bạn có 2 table tên là Customer and SalesOrder. Trong table Customer bạn có 1000
+customers, trong đó có 900 customers đã đặt hàng trong table SalesOrder. Bạn cần thực thi
+câu query sau để liệt kê danh sách tất cả các customer đã mua ít nhất 1 sản phẩm. Kết quả
+nào sẽ đúng với câu query dưới đây?
+SELECT * FROM Customer WHERE Customer.CustomerID IN (SELECT
+SalesOrder.CustomerID FROM SalesOrder).
+
+A. Không có dữ liệu;
+
+18. Điều nào sau đây là một trong những cách tiếp cận cơ bản để Join các table? 
+
+D. All of the mentioned options
+
+19. 1 câu query UNION là?
+C. Kết hợp output từ nhiều câu query và chỉ bao gồm số lượng các column giống nhau 
+
+20. Phát biểu nào sau đây là đúng với subquery? 
+A. Liên quan đến việc sử dụng truy vấn bên trong và bên ngoài (inner và outer query)
+
+21. Bạn có ứng dụng của bên thứ ba chèn dữ liệu trực tiếp vào table. Bạn thêm hai cột mới
+vào table. Các cột này không thể sử dụng các ràng buộc mặc định. Bạn cần đảm bảo rằng
+các cột mới không phá vỡ ứng dụng của bên thứ ba. Những gì bạn nên làm? 
+C. Tạo 1 AFTER INSERT trigger
+
+22. 1 function return về 1 giá trị và chỉ có 1 output parameter?
+A. True
+
+23. Triggers được lưu thành 1 khối code và phải gọi thì mới hoạt động?
+A. True
+
+24. Câu nào đúng về Store routines và triggers?
+
+B. Cả 2 đều phải gọi thì mới hoạt động
+D. Cả 2 đều được lưu trong database
+
+25. Câu nào đúng về procedure
+C. Chúng bao gồm câu lệnh thủ tục và câu lệnh SQL
